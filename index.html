@@ -6,37 +6,50 @@
   <title>Vishwesh Nagamalla | AI Innovator</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Poppins (similar to Anjani.ai, clean and modern) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- No Google Fonts link for Poppins, using system font stack as per Anjani.ai style -->
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    /* Custom styles for a cleaner, more modern look resembling Anjani.ai */
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.75; /* Slightly more relaxed line height */
-      color: #333; /* Darker text for better contrast */
-      background-color: #f8faff; /* Very light blue-grey background */
+    /* Custom CSS variables from Anjani.ai for dark theme */
+    :root {
+      --bg-dark: #0d1620;
+      --bg-card: #141f2d;
+      --text-primary: #eaf0f8;
+      --text-secondary: #a3b3c7;
+      --text-highlight: #ffffff;
+      --accent: #64b5f6; /* A lighter blue */
+      --border: #2a3544;
+      --tag-bg: rgba(100, 181, 246, 0.1);
+      --tag-text: #77c1ff;
+      --hover-effect: rgba(100, 181, 246, 0.05);
+      --download-button-bg: #e63946; /* From Anjani's resume button */
+      --download-button-hover: #fa626f; /* A slightly lighter red for hover */
     }
 
-    /* Hide scrollbar for a cleaner look */
+    /* Reset and base styles copied and adapted from Anjani.ai */
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
     body::-webkit-scrollbar {
         display: none;
     }
-    body {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-    }
 
-    /* Hero Section Specifics */
+    /* Hero Section Specifics (adapted to new theme) */
     .hero-bg {
-      background: linear-gradient(135deg, #1f2937 0%, #0d1a26 100%); /* Dark, professional gradient */
-      /* Subtle pattern for texture */
+      background: linear-gradient(135deg, var(--bg-dark) 0%, #081017 100%); /* Dark, professional gradient */
+      /* Subtle pattern for texture, adapted for dark theme */
       background-image:
-        url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239CA3AF' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5zM1 0h1L0 2V1z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E"),
-        linear-gradient(135deg, #1f2937 0%, #0d1a26 100%);
+        url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232a3544' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5zM1 0h1L0 2V1z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E"),
+        linear-gradient(135deg, var(--bg-dark) 0%, #081017 100%);
       background-size: 6px 6px, cover;
-      min-height: 85vh; /* Make hero section taller */
+      min-height: 85vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -45,58 +58,116 @@
     .hero-content {
       position: relative;
       z-index: 10;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Soft shadow for text */
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4); /* Stronger shadow for dark background */
     }
     .hero-image {
-        border: 6px solid rgba(255,255,255,0.2); /* Softer border for profile pic */
-        box-shadow: 0 8px 15px rgba(0,0,0,0.4); /* Stronger shadow for depth */
+        border: 3px solid var(--accent); /* Accent border */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+        transition: transform 0.3s ease;
+    }
+    .hero-image:hover {
+        transform: scale(1.05);
     }
 
-    /* Section Cards (Consistent with previous good design) */
+    /* Buttons adapted from Anjani.ai */
+    .action-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
+      margin-top: 10px;
+      font-size: 16px;
+      color: var(--text-highlight);
+      background-color: var(--accent);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .action-button:hover {
+      background-color: #55a0e0; /* Slightly darker accent on hover */
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .download-cv-button {
+      background-color: var(--download-button-bg);
+    }
+    .download-cv-button:hover {
+      background-color: var(--download-button-hover);
+    }
+
+    /* Section Cards (adapted to new theme) */
     .section-card {
-      background-color: #ffffff;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Softer, broader shadow */
-      border-radius: 12px;
-      padding: 2.5rem; /* Increased padding */
-      margin-top: 2.5rem; /* Consistent top margin */
+      background-color: var(--bg-card);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px; /* Slightly less rounded */
+      padding: 2.5rem;
+      margin-top: 2.5rem;
       transition: all 0.3s ease-in-out;
-      border: 1px solid #e0e7ff; /* Lighter, more subtle border */
+      border: 1px solid var(--border); /* Subtle border */
+      animation: fadeIn 0.5s ease-in-out; /* Fade in animation */
     }
     .section-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* More pronounced lift */
+      background-color: var(--hover-effect); /* Subtle hover effect */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
-    /* Headings */
-    h2 {
-      font-size: 2.75rem; /* Slightly smaller for balance */
+    /* Headings adapted to new theme */
+    h1 {
+      font-size: 2.8rem;
       font-weight: 700;
-      color: #1e3a8a; /* Deep blue for main headings */
+      color: var(--text-highlight); /* Pure white */
+      margin-bottom: 0.5rem;
+      letter-spacing: -1px;
+    }
+    h2 {
+      font-size: 2.25rem; /* Section titles */
+      font-weight: 700;
+      color: var(--text-highlight);
       margin-bottom: 1.5rem;
       padding-bottom: 0.5rem;
-      border-bottom: 4px solid #93c5fd; /* Light blue border */
-      display: inline-block; /* To make border follow text width */
-      text-align: center; /* For centering the border-bottom below text */
-      width: fit-content; /* Make border adapt to content width */
+      position: relative;
+      text-align: center; /* Ensure border is centered if width: fit-content */
+      width: fit-content;
       margin-left: auto;
       margin-right: auto;
     }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%; /* Center the pseudo-element */
+      transform: translateX(-50%); /* Adjust for centering */
+      width: 3rem;
+      height: 3px;
+      background-color: var(--accent);
+      border-radius: 3px;
+    }
     h3 {
-      font-size: 1.75rem; /* Slightly smaller for balance */
+      font-size: 1.5rem; /* Subheadings within sections */
       font-weight: 600;
-      color: #2563eb; /* Royal blue for subheadings */
+      color: var(--text-primary); /* Primary text color for subheadings */
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
-      gap: 0.75rem; /* Space between icon and text */
+      gap: 0.75rem;
     }
     h3 svg {
-        color: #1e3a8a; /* Icon color for subheadings */
+        color: var(--accent); /* Accent color for subheading icons */
     }
 
-    /* List Items & Links */
+    /* General text styles */
+    p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    /* List Items & Links adapted */
     ul li {
       margin-bottom: 0.75rem;
+      color: var(--text-secondary); /* Ensure list text is secondary */
     }
     .icon-list-item {
       align-items: flex-start;
@@ -105,53 +176,89 @@
       margin-right: 0.75rem;
       flex-shrink: 0;
       margin-top: 0.25rem;
-      color: #2563eb;
+      color: var(--accent); /* Accent color for list item icons */
     }
     .publication-link {
-        color: #2563eb; /* Blue for links */
+        color: var(--accent); /* Accent for links */
         transition: color 0.3s ease, text-decoration 0.3s ease;
         position: relative;
         padding-bottom: 2px;
     }
     .publication-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: #3b82f6;
-        transition: width 0.3s ease;
-    }
-    .publication-link:hover::after {
-        width: 100%;
+        background-color: var(--accent); /* Accent for underline */
     }
     .publication-link:hover {
-        color: #1e40af; /* Darker blue on hover */
+        color: var(--text-highlight); /* Highlight on hover */
     }
+    .marker\:text-blue-500 { /* Override Tailwind's default bullet color */
+        color: var(--accent);
+    }
+    .text-gray-600 { /* Ensure specific colors in CV content are adapted */
+        color: var(--text-secondary) !important;
+    }
+
+    /* Navigation Bar (adapted) */
+    nav {
+      background-color: var(--bg-card); /* Card background for nav */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Darker shadow */
+      py: 4; /* Tailwind utility */
+      sticky: top-0; /* Tailwind utility */
+      z-index: 20; /* Tailwind utility */
+    }
+    nav ul li a {
+      color: var(--text-secondary); /* Secondary text for nav links */
+      transition: color 0.2s ease;
+      py: 2; /* Tailwind utility */
+      px: 3; /* Tailwind utility */
+      border-radius: 6px; /* Slightly more rounded nav items */
+    }
+    nav ul li a:hover {
+      color: var(--text-highlight); /* Highlight on hover */
+      background-color: var(--hover-effect); /* Subtle hover background */
+    }
+    /* Contact Section Specifics */
+    .contact-link-icon { /* For icons within contact links */
+        color: var(--accent);
+    }
+    .contact-link-text { /* For link text within contact section */
+        color: var(--accent);
+    }
+    .contact-link-text:hover {
+        color: var(--text-highlight);
+    }
+
 
     /* Footer */
     footer {
-      background-color: #1a202c; /* Dark footer */
-      color: #e0e7ff; /* Light text */
+      background-color: var(--bg-dark); /* Dark background for footer */
+      color: var(--text-secondary); /* Secondary text for footer */
+      padding: 1.5rem; /* Tailwind utility */
+      margin-top: auto; /* Tailwind utility */
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Shadow for footer */
     }
 
-    /* Responsive Adjustments */
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive Adjustments (kept mostly similar, adjusted colors/fonts) */
     @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
-      .hero-content p {
-        font-size: 1.25rem;
-      }
-      h2 {
+      h1 {
         font-size: 2.25rem;
       }
+      .hero-content p {
+        font-size: 1.15rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
       h3 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
       .section-card {
-        padding: 2rem;
+        padding: 1.5rem;
       }
     }
   </style>
@@ -160,15 +267,15 @@
   <!-- Header / Hero Section -->
   <header id="home" class="hero-bg text-white py-20 px-4">
     <div class="container mx-auto flex flex-col items-center justify-center text-center hero-content">
-      <img src="vishwesh.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/4a5568/ffffff?text=Vishwesh';" alt="Vishwesh Nagamalla" class="hero-image rounded-full w-48 h-48 object-cover mb-8 transform transition-transform duration-500 hover:scale-105" />
+      <img src="vishwesh.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/141f2d/a3b3c7?text=Vishwesh';" alt="Vishwesh Nagamalla" class="hero-image rounded-full w-48 h-48 object-cover mb-8" />
       <h1 class="text-5xl md:text-6xl font-extrabold mb-3 tracking-tight">Vishwesh Nagamalla</h1>
       <p class="text-2xl md:text-3xl font-light mb-8">Associate Professor & HoD - CSE (AI & ML) | AI Innovator</p>
       <div class="flex flex-wrap justify-center gap-6">
-        <a href="#about" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+        <a href="#about" class="action-button">
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           Learn More
         </a>
-        <a href="Vishwesh-CV.pdf" target="_blank" class="inline-flex items-center bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-500">
+        <a href="Vishwesh-CV.pdf" target="_blank" class="action-button download-cv-button">
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
           Download CV
         </a>
@@ -176,18 +283,18 @@
     </div>
   </header>
 
-  <!-- Navigation Bar (Fixed to top on scroll via JS, if needed, but not included in this simple version) -->
-  <nav class="bg-white shadow-md py-4 sticky top-0 z-20">
-    <ul class="container mx-auto flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg font-medium text-gray-700">
-      <li><a href="#about" class="hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-md">About</a></li>
-      <li><a href="#experience" class="hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-md">Experience</a></li>
-      <li><a href="#education" class="hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-md">Education</a></li>
-      <li><a href="#certifications" class="hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-md">Certifications</a></li>
-      <li><a href="#subjects" class="hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-md">Subjects Handled</a></li>
-      <li><a href="#research" class="hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-md">Research</a></li>
-      <li><a href="#publications" class="hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-md">Publications</a></li>
-      <li><a href="#books" class="hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-md">Books</a></li>
-      <li><a href="#contact" class="hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-md">Contact</a></li>
+  <!-- Navigation Bar -->
+  <nav class="shadow-md py-4 sticky top-0 z-20">
+    <ul class="container mx-auto flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg font-medium">
+      <li><a href="#about" class="py-2 px-3 rounded-md">About</a></li>
+      <li><a href="#experience" class="py-2 px-3 rounded-md">Experience</a></li>
+      <li><a href="#education" class="py-2 px-3 rounded-md">Education</a></li>
+      <li><a href="#certifications" class="py-2 px-3 rounded-md">Certifications</a></li>
+      <li><a href="#subjects" class="py-2 px-3 rounded-md">Subjects Handled</a></li>
+      <li><a href="#research" class="py-2 px-3 rounded-md">Research</a></li>
+      <li><a href="#publications" class="py-2 px-3 rounded-md">Publications</a></li>
+      <li><a href="#books" class="py-2 px-3 rounded-md">Books</a></li>
+      <li><a href="#contact" class="py-2 px-3 rounded-md">Contact</a></li>
     </ul>
   </nav>
 
@@ -197,7 +304,7 @@
     <!-- About Me Section -->
     <section id="about" class="section-card">
       <h2 class="text-center">About Me</h2>
-      <p class="text-lg leading-relaxed text-gray-700">
+      <p class="text-lg leading-relaxed">
         My career objective is to engage in the noble profession of teaching, where I aim to shape and mold future engineers to build our nation with disciplined technology. I firmly believe that the destiny of a nation can alone be shaped in the classroom, for which the teacher is the leader and inspirer. I have chosen this profession over many industry opportunities, drawing inspiration from Dr. Sarvepalli Radhakrishnan.
         <br><br>
         Currently, I am a passionate Associate Professor and Head of Department for CSE (AI & ML) at Holy Mary Institute of Technology and Science, with over 14 years of diverse experience in both academia and industry. My dedication lies in empowering the next generation of engineers by fostering innovation at the intersection of Artificial Intelligence and the Internet of Things, preparing them to tackle real-world challenges with cutting-edge solutions. My work focuses on advancing the practical applications of AI in various domains, ensuring that theoretical knowledge translates into tangible impact.
@@ -207,7 +314,7 @@
     <!-- Experience Section -->
     <section id="experience" class="section-card">
       <h2 class="text-center">Experience</h2>
-      <h3 class="text-xl font-semibold text-blue-700 mb-4 flex items-center justify-center">
+      <h3 class="text-xl font-semibold mb-4 flex items-center justify-center">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9.772a4.5 4.5 0 000 4.456M9.75 12H15m1.5 0c1.333 0 2.585.56 3.447 1.455a4.5 4.5 0 010 6.185A4.5 4.5 0 0115 21a4.5 4.5 0 01-3.447-1.455m0-11.091A4.5 4.5 0 0112 5.25c1.333 0 2.585.56 3.447 1.455a4.5 4.5 0 010 6.185A4.5 4.5 0 0115 17a4.5 4.5 0 01-3.447-1.455"></path></svg>
         Total Experience <span class="text-xl font-normal ml-2">(14 Years+)</span>
       </h3>
@@ -217,10 +324,10 @@
             <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
             Teaching <span class="text-xl font-normal ml-2">(12+ Years)</span>
           </h3>
-          <ul class="list-none text-lg text-gray-700 space-y-4">
-            <li class="icon-list-item"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Associate Professor & HoD CSE (AI & ML) at Holy Mary Institute of Technology & Science (Autonomous) (October 2022 - Present)</li>
-            <li class="icon-list-item"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Assistant Professor at SNIST (Autonomous) (August 2014 - October 2022)</li>
-            <li class="icon-list-item"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Assistant Professor at JNTUH College of Engineering (January 2013 - August 2014)</li>
+          <ul class="list-none text-lg space-y-4">
+            <li class="icon-list-item"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Associate Professor & HoD CSE (AI & ML) at Holy Mary Institute of Technology & Science (Autonomous) (October 2022 - Present)</li>
+            <li class="icon-list-item"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Assistant Professor at SNIST (Autonomous) (August 2014 - October 2022)</li>
+            <li class="icon-list-item"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Assistant Professor at JNTUH College of Engineering (January 2013 - August 2014)</li>
           </ul>
         </div>
         <div>
@@ -228,8 +335,8 @@
             <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.208-8.455-3.255M2.999 9.845A2.398 2.398 0 012 10.5a2.398 2.398 0 01-.999-.655M21.001 9.845A2.398 2.398 0 0022 10.5a2.398 2.398 0 00.999-.655"></path></svg>
             Industry <span class="text-xl font-normal ml-2">(2 Years)</span>
           </h3>
-          <ul class="list-none text-lg text-gray-700 space-y-4">
-            <li class="icon-list-item"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Software Engineer - NM Reddy's Software Solutions (November 2008 - November 2010)</li>
+          <ul class="list-none text-lg space-y-4">
+            <li class="icon-list-item"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Software Engineer - NM Reddy's Software Solutions (November 2008 - November 2010)</li>
           </ul>
         </div>
       </div>
@@ -238,27 +345,27 @@
     <!-- Education Details Section -->
     <section id="education" class="section-card">
       <h2 class="text-center">Education Details</h2>
-      <ul class="list-disc list-inside text-lg text-gray-700 space-y-4 marker:text-blue-500">
+      <ul class="list-disc list-inside text-lg space-y-4">
         <li>
-          <span class="font-semibold">PhD in Computer Science & Engineering</span> (Thesis Submitted)
-          <span class="text-gray-600 text-base block mt-1"> - Mansarovar Global University, Madhya Pradesh</span>
-          <span class="text-sm text-gray-600 ml-5 italic">Research Title: Analytical Study on Enabling of AI for Security in IOT.</span>
+          <span class="font-semibold text-text-primary">PhD in Computer Science & Engineering</span> (Thesis Submitted)
+          <span class="text-secondary block mt-1"> - Mansarovar Global University, Madhya Pradesh</span>
+          <span class="text-sm text-secondary ml-5 italic">Research Title: Analytical Study on Enabling of AI for Security in IOT.</span>
         </li>
         <li>
-          <span class="font-semibold">MTech in Computer Networks & Information Security</span> (2010-2012)
-          <span class="text-gray-600 text-base block mt-1"> - JNTUH College of Engineering, Kukatpally, Hyderabad</span>
+          <span class="font-semibold text-text-primary">MTech in Computer Networks & Information Security</span> (2010-2012)
+          <span class="text-secondary block mt-1"> - JNTUH College of Engineering, Kukatpally, Hyderabad</span>
         </li>
         <li>
-          <span class="font-semibold">B.Tech in Computer Science & Engineering</span> (2004-2008)
-          <span class="text-gray-600 text-base block mt-1"> - Kamala Institute of Technology & Science, Huzurabad</span>
+          <span class="font-semibold text-text-primary">B.Tech in Computer Science & Engineering</span> (2004-2008)
+          <span class="text-secondary block mt-1"> - Kamala Institute of Technology & Science, Huzurabad</span>
         </li>
         <li>
-          <span class="font-semibold">Intermediate</span> (2002-2004)
-          <span class="text-gray-600 text-base block mt-1"> - Alphores Junior College, Karimnagar</span>
+          <span class="font-semibold text-text-primary">Intermediate</span> (2002-2004)
+          <span class="text-secondary block mt-1"> - Alphores Junior College, Karimnagar</span>
         </li>
         <li>
-          <span class="font-semibold">10th Class</span> (2001-2002)
-          <span class="text-gray-600 text-base block mt-1"> - Sri Vidyaranya Avasa Vidyalayam, Jammikunta</span>
+          <span class="font-semibold text-text-primary">10th Class</span> (2001-2002)
+          <span class="text-secondary block mt-1"> - Sri Vidyaranya Avasa Vidyalayam, Jammikunta</span>
         </li>
       </ul>
     </section>
@@ -266,22 +373,22 @@
     <!-- Certifications Section -->
     <section id="certifications" class="section-card">
       <h2 class="text-center">Certifications</h2>
-      <ul class="list-disc list-inside text-lg text-gray-700 space-y-4 marker:text-blue-500">
+      <ul class="list-disc list-inside text-lg space-y-4">
         <li>
-          <span class="font-semibold">"CS-205: Artificial Intelligence"</span>
-          <span class="text-gray-600 text-base block mt-1"> - Certificate ID: 9277473645VN, Saylor.org Academy</span>
+          <span class="font-semibold text-text-primary">"CS-205: Artificial Intelligence"</span>
+          <span class="text-secondary block mt-1"> - Certificate ID: 9277473645VN, Saylor.org Academy</span>
         </li>
         <li>
-          <span class="font-semibold">"Machine Learning"</span>
-          <span class="text-gray-600 text-base block mt-1"> - Certificate of Completion issued by Infosys Springboard</span>
+          <span class="font-semibold text-text-primary">"Machine Learning"</span>
+          <span class="text-secondary block mt-1"> - Certificate of Completion issued by Infosys Springboard</span>
         </li>
         <li>
-          <span class="font-semibold">"Blockchain in Depth"</span>
-          <span class="text-gray-600 text-base block mt-1"> - Certificate of Completion issued by Infosys Springboard</span>
+          <span class="font-semibold text-text-primary">"Blockchain in Depth"</span>
+          <span class="text-secondary block mt-1"> - Certificate of Completion issued by Infosys Springboard</span>
         </li>
         <li>
-          <span class="font-semibold">"Azure AI Fundamentals"</span>
-          <span class="text-gray-600 text-base block mt-1"> - Credential ID: 139984086, Skill Soft</span>
+          <span class="font-semibold text-text-primary">"Azure AI Fundamentals"</span>
+          <span class="text-secondary block mt-1"> - Credential ID: 139984086, Skill Soft</span>
         </li>
       </ul>
     </section>
@@ -289,7 +396,7 @@
     <!-- Subjects Handled Section -->
     <section id="subjects" class="section-card">
       <h2 class="text-center">Subjects Handled</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-lg text-gray-700">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-lg">
         <div class="flex items-center space-x-3">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
           <span>Artificial Intelligence</span>
@@ -364,7 +471,7 @@
     <!-- Research & Interests Section -->
     <section id="research" class="section-card">
       <h2 class="text-center">Research & Interests</h2>
-      <div class="space-y-4 text-gray-700 text-lg">
+      <div class="space-y-4 text-lg">
           <h3 class="flex items-center">
               <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h4c0 1.258 1 2 2 2h2c1 0 2-1.333 2-3V8a2 2 0 00-2-2h-3L8 3v3m0 3h.01M9 12H5M15 12h4"></path></svg>
               Artificial Intelligence
@@ -387,66 +494,66 @@
         <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2.586m-4.586-4L12 12m0 0L8 12m4 0l4 4m-4-4l-4 4"></path></svg>
         Journals <span class="text-xl font-normal ml-2">(16 total, including 1 SCI and 5 Scopus)</span>
       </h3>
-      <ul class="list-disc list-inside text-lg text-gray-700 space-y-4 marker:text-blue-500 mt-4">
+      <ul class="list-disc list-inside text-lg space-y-4 mt-4">
         <li>
           <a href="https://ijritcc.org/index.php/ijritcc/article/view/11612" target="_blank" class="publication-link font-semibold">Comparing the Performance of Artificial Intelligence Techniques for Internet of Things Security</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal on Recent and Innovation Trends in Computing and Communication,</span> Volume: 11 Issue: 11 (Scopus Indexed)</span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">International Journal on Recent and Innovation Trends in Computing and Communication,</span> Volume: 11 Issue: 11 (Scopus Indexed)</span>
         </li>
         <li>
           <a href="https://ijritcc.org/index.php/ijritcc/article/view/11277/8649" target="_blank" class="publication-link font-semibold">Exploring Opportunities, Applications, And Challenges for Advancing the Internet of Things with Artificial Intelligence</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal on Recent and Innovation Trends in Computing and Communication</span> (Scopus Indexed)</span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">International Journal on Recent and Innovation Trends in Computing and Communication</span> (Scopus Indexed)</span>
         </li>
         <li>
           <a href="https://jnao-nu.com/Vol.%2015,%20Issue.%2001,%20January-June%20:%202024/29_online.pdf" target="_blank" class="publication-link font-semibold">IoT Based Manhole Monitoring System</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">Journal of Nonlinear Analysis and Optimization,</span> Vol. 15, Issue. 1: 2024</span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">Journal of Nonlinear Analysis and Optimization,</span> Vol. 15, Issue. 1: 2024</span>
         </li>
         <li>
           <a href="https://www.hindawi.com/journals/jfq/2022/6163649/" target="_blank" class="publication-link font-semibold">Detection of Adulteration in Food using Recurrent Neural Networks with Internet of Things</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">Journal of Food Quality,</span> Wiley & Hindawi (SCI Indexed Journal)</span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">Journal of Food Quality,</span> Wiley & Hindawi (SCI Indexed Journal)</span>
         </li>
         <li>
           <a href="https://americaspg.com/articleinfo/20/show/2374" target="_blank" class="publication-link font-semibold">Integrating Predictive Big Data Analytics with Behavioral Machine Learning Models for Proactive Threat Intelligence in Industrial IoT Cybersecurity</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal on Wireless and Ad hoc Communications</span> (Scopus Indexed)</span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">International Journal on Wireless and Ad hoc Communications</span> (Scopus Indexed)</span>
         </li>
         <li>
           <a href="https://www.seyboldreport.net/pdf/99.pdf" target="_blank" class="publication-link font-semibold">Investigation on Detection of Data Poisoning Attacks: Most Possible Defenses and Countermeasures</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">Seybold Report</span> (Scopus Indexed Journal)</span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">Seybold Report</span> (Scopus Indexed Journal)</span>
         </li>
         <li>
           <a href="https://www.neuroquantology.com/data-cms/articles/20220926030836pmNQ55907.pdf" target="_blank" class="publication-link font-semibold">Analysis and Detection of Fake Apps in Android Environment</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">Neuro Quantology</span> (Scopus Indexed Journal)</span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">Neuro Quantology</span> (Scopus Indexed Journal)</span>
         </li>
         <li>
           <a href="https://doi.org/10.54216/IJWAC.070201" target="_blank" class="publication-link font-semibold">Integrating Predictive Big Data Analytics with Behavioral Machine Learning for Proactive Threat Intelligence in Industrial IoT Cyber Security</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal of Wireless and Adhoc Communication,</span> Volume no 7, Issue 2</span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">International Journal of Wireless and Adhoc Communication,</span> Volume no 7, Issue 2</span>
         </li>
         <li>
           <a href="https://www.ijraset.com/print-certificate.php?member=18617" target="_blank" class="publication-link font-semibold">Blockchain Technology: A Study on Structure, Classification, Applications of Blockchain</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal for Research in Applied Science and Engineering Technology</span></span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">International Journal for Research in Applied Science and Engineering Technology</span></span>
         </li>
         <li>
           <a href="http://dx.doi.org/10.21474/IJAR01/8578" target="_blank" class="publication-link font-semibold">Location with Witness of Mutual Proofs Providing Privacy for Mobile Users</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal of Advanced Research (IJAR)</span></span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">International Journal of Advanced Research (IJAR)</span></span>
         </li>
         <li>
           <a href="https://iiiemr.org/downloads/Volume-7/ISSUE-9" target="_blank" class="publication-link font-semibold">A Systematic Study on Applications of Big data In Bioinformatics</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal for Innovative Engineering and Management Research</span></span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">International Journal for Innovative Engineering and Management Research</span></span>
         </li>
         <li>
           <a href="https://acadpubl.eu/hub/2018-120-6/1/16.pdf" target="_blank" class="publication-link font-semibold">An Overview on the Challenges and Impact of IoT in Future Education</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal of Pure and Applied Mathematics,</span> Volume No 120</span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">International Journal of Pure and Applied Mathematics,</span> Volume No 120</span>
         </li>
         <li>
           <a href="http://ijsetr.com/uploads/352641IJSETR6700 -1266.pdf" target="_blank" class="publication-link font-semibold">Tradeoff Between Tracing Bits and Parity Bits in Multiple Access Relay Networks</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal of Scientific Engineering and Technology Research (IJSETR),</span> Vol.04, Issue.35</span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">International Journal of Scientific Engineering and Technology Research (IJSETR),</span> Vol.04, Issue.35</span>
         </li>
         <li>
           <a href="http://www.iosrjournals.org/iosr -ice/papers/Vol8 -Issue5/10856369.pdf" target="_blank" class="publication-link font-semibold">Generation of Meta Alerts by Aggregating Intrusion Alerts</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">IOSR Journal of Computer Engineering (IOSR-JCE),</span> Volume 8, Issue 5</span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">IOSR Journal of Computer Engineering (IOSR-JCE),</span> Volume 8, Issue 5</span>
         </li>
         <li>
           <a href="http://ijcsn.org/IJCSN -2013/2-1/IJCSN -2013-2-1-50.pdf" target="_blank" class="publication-link font-semibold">A Framework for Semantic Advertisement over Social Media</a>
-          <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal of Computer Science and Network (IJCSN),</span> Volume 2, Issue 1</span>
+          <span class="text-secondary block mt-1"> - <span class="font-medium">International Journal of Computer Science and Network (IJCSN),</span> Volume 2, Issue 1</span>
         </li>
       </ul>
 
@@ -454,22 +561,22 @@
         <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
         Patents <span class="text-xl font-normal ml-2">(4 total: 1 International and 3 National)</span>
       </h3>
-      <ul class="list-disc list-inside text-lg text-gray-700 space-y-4 marker:text-blue-500 mt-4">
+      <ul class="list-disc list-inside text-lg space-y-4 mt-4">
         <li>
-          <span class="font-semibold">Software Based Review of Current Supply Chain Management Technologies Based on IoT</span>
-          <span class="text-gray-600 text-base block mt-1"> - Canadian Copyright Application Number 1198729, Date of File: 22/12/2022</span>
+          <span class="font-semibold text-text-primary">Software Based Review of Current Supply Chain Management Technologies Based on IoT</span>
+          <span class="text-secondary block mt-1"> - Canadian Copyright Application Number 1198729, Date of File: 22/12/2022</span>
         </li>
         <li>
-          <span class="font-semibold">The Internet of Things (IoT) and Cloud-Computing-based mass customization-driven customer demand response platform</span>
-          <span class="text-gray-600 text-base block mt-1"> - Patent Application Number: 202241034095 (Published), Date of Publication 22/07/2022</span>
+          <span class="font-semibold text-text-primary">The Internet of Things (IoT) and Cloud-Computing-based mass customization-driven customer demand response platform</span>
+          <span class="text-secondary block mt-1"> - Patent Application Number: 202241034095 (Published), Date of Publication 22/07/2022</span>
         </li>
         <li>
-          <span class="font-semibold">IoT and Artificial Intelligence based Continuous Monitoring for bridge Safety by using Health Monitoring Technology</span>
-          <span class="text-gray-600 text-base block mt-1"> - Patent Application No. 202241015569 (Published), Date of Publication: 25/03/2022</span>
+          <span class="font-semibold text-text-primary">IoT and Artificial Intelligence based Continuous Monitoring for bridge Safety by using Health Monitoring Technology</span>
+          <span class="text-secondary block mt-1"> - Patent Application No. 202241015569 (Published), Date of Publication: 25/03/2022</span>
         </li>
         <li>
-          <span class="font-semibold">Machine Learning and IoT Based Intelligent System for Monitoring Health of Vehicle Battery</span>
-          <span class="text-gray-600 text-base block mt-1"> - Patent Application No. 202211011330 (Published), Date of File: 11/03/2022</span>
+          <span class="font-semibold text-text-primary">Machine Learning and IoT Based Intelligent System for Monitoring Health of Vehicle Battery</span>
+          <span class="text-secondary block mt-1"> - Patent Application No. 202211011330 (Published), Date of File: 11/03/2022</span>
         </li>
       </ul>
 
@@ -477,10 +584,10 @@
         <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
         Book Chapter <span class="text-xl font-normal ml-2">(1 Scopus Indexed)</span>
       </h3>
-      <ul class="list-disc list-inside text-lg text-gray-700 space-y-4 marker:text-blue-500 mt-4">
+      <ul class="list-disc list-inside text-lg space-y-4 mt-4">
         <li>
-          <span class="font-semibold">Development of an Intelligent Management Accounting System by using Machine Learning and Data Mining Technique</span>
-          <span class="text-gray-600 text-base block mt-1"> - (Submitted)</span>
+          <span class="font-semibold text-text-primary">Development of an Intelligent Management Accounting System by using Machine Learning and Data Mining Technique</span>
+          <span class="text-secondary block mt-1"> - (Submitted)</span>
         </li>
       </ul>
     </section>
@@ -488,14 +595,14 @@
     <!-- Books Section -->
     <section id="books" class="section-card">
       <h2 class="text-center">Books</h2>
-      <ul class="list-disc list-inside text-lg text-gray-700 space-y-4 marker:text-blue-500">
+      <ul class="list-disc list-inside text-lg space-y-4">
         <li>
           <a href="https://amzn.eu/d/9v9Pv80" target="_blank" class="publication-link font-semibold">Data Structures (Text Book)</a>
-          <span class="text-gray-600 text-base block mt-1"> - JEC Publications, ISBN: 978-93-5850-628-0</span>
+          <span class="text-secondary block mt-1"> - JEC Publications, ISBN: 978-93-5850-628-0</span>
         </li>
         <li>
           <a href="https://www.flipkart.com/iot-architecture-its-protocols/p/itmcd576475aea93" target="_blank" class="publication-link font-semibold">IoT Architecture and Its Protocols (Text Book)</a>
-          <span class="text-gray-600 text-base block mt-1"> - Alpha International Publication (AIP), ISBN: 978-93-95978-01-9</span>
+          <span class="text-secondary block mt-1"> - Alpha International Publication (AIP), ISBN: 978-93-95978-01-9</span>
         </li>
       </ul>
     </section>
@@ -503,18 +610,18 @@
     <!-- Contact Section -->
     <section id="contact" class="section-card">
       <h2 class="text-center">Contact</h2>
-      <div class="flex flex-col items-center justify-center text-lg text-gray-700 space-y-4">
+      <div class="flex flex-col items-center justify-center text-lg space-y-4">
         <div class="flex items-center">
-          <svg class="w-6 h-6 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 4v4a2 2 0 002 2h14a2 2 0 002-2v-4M3 8l7.89 5.26a2 2 0 002.22 0L21 8"></path></svg>
-          <a href="mailto:vishwesh2010@gmail.com" class="text-blue-600 hover:underline">vishwesh2010@gmail.com</a>
+          <svg class="w-6 h-6 mr-3 contact-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 4v4a2 2 0 002 2h14a2 2 0 002-2v-4M3 8l7.89 5.26a2 2 0 002.22 0L21 8"></path></svg>
+          <a href="mailto:vishwesh2010@gmail.com" class="contact-link-text hover:underline">vishwesh2010@gmail.com</a>
         </div>
         <div class="flex items-center">
-          <svg class="w-6 h-6 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-          <span>+91-9949942144</span>
+          <svg class="w-6 h-6 mr-3 contact-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          <span class="text-secondary">+91-9949942144</span>
         </div>
         <div class="flex items-center">
-          <svg class="w-6 h-6 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path></svg>
-          <a href="https://linkedin.com/in/vishweshnagamalla" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/vishweshnagamalla</a>
+          <svg class="w-6 h-6 mr-3 contact-link-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path></svg>
+          <a href="https://linkedin.com/in/vishweshnagamalla" target="_blank" class="contact-link-text hover:underline">linkedin.com/in/vishweshnagamalla</a>
         </div>
       </div>
     </section>
@@ -522,7 +629,7 @@
   </main>
 
   <!-- Footer Section -->
-  <footer class="text-center p-6 bg-gray-800 text-gray-300 mt-auto shadow-inner text-sm">
+  <footer class="text-center p-6 shadow-inner text-sm">
     &copy; 2025 Vishwesh Nagamalla. All rights reserved. Built with AI. Last Updated: June 2025.
   </footer>
 
