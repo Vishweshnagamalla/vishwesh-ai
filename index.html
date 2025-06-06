@@ -6,7 +6,10 @@
   <title>Vishwesh Nagamalla | GitHub Portfolio</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     /* Custom styles for specific elements not covered by Tailwind or for overriding */
     body {
@@ -22,188 +25,251 @@
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
     }
+    /* Smooth scroll for navigation links */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Custom background pattern for header */
+    .header-bg {
+      background-color: #1a202c; /* Dark slate blue */
+      background-image: radial-gradient(circle at 10% 20%, rgba(69,86,108,0.5) 0%, rgba(20,29,46,0.8) 90%), linear-gradient(to bottom, #1a202c, #2d3748);
+    }
+    /* Card-like effect for sections */
+    .section-card {
+      transition: all 0.3s ease-in-out;
+    }
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    /* Styling for list items with icons */
+    .icon-list-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .icon-list-item svg {
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+    }
   </style>
 </head>
-<body class="bg-gray-100 flex flex-col min-h-screen">
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 flex flex-col min-h-screen">
   <!-- Header Section -->
-  <header class="bg-blue-800 text-white p-6 text-center shadow-lg">
-    <h1 class="text-4xl font-bold mb-2">Vishwesh Nagamalla</h1>
-    <p class="text-xl mb-4">Associate Professor & HoD - CSE (AI & ML)</p>
-    <p class="text-lg">
-      <a href="mailto:vishwesh2010@gmail.com" class="text-blue-200 hover:text-white transition-colors duration-300">vishwesh2010@gmail.com</a>
-      <span class="mx-2">|</span>
-      <a href="https://linkedin.com/in/vishweshnagamalla" target="_blank" class="text-blue-200 hover:text-white transition-colors duration-300">LinkedIn</a>
-    </p>
+  <header class="header-bg text-white p-8 text-center shadow-2xl relative overflow-hidden">
+    <!-- Abstract shapes for background aesthetic -->
+    <div class="absolute top-0 left-0 w-full h-full opacity-10" style="background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1), transparent 50%), radial-gradient(circle at 30% 80%, rgba(255,255,255,0.05), transparent 60%);"></div>
+    <div class="relative z-10">
+      <h1 class="text-5xl font-extrabold mb-3 tracking-tight">Vishwesh Nagamalla</h1>
+      <p class="text-2xl font-light mb-6">Associate Professor & HoD - CSE (AI & ML)</p>
+      <div class="flex justify-center items-center text-xl space-x-6">
+        <a href="mailto:vishwesh2010@gmail.com" class="flex items-center text-blue-200 hover:text-white transition-all duration-300 transform hover:scale-105">
+          <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 4v4a2 2 0 002 2h14a2 2 0 002-2v-4M3 8l7.89 5.26a2 2 0 002.22 0L21 8"></path></svg>
+          <span>vishwesh2010@gmail.com</span>
+        </a>
+        <a href="https://linkedin.com/in/vishweshnagamalla" target="_blank" class="flex items-center text-blue-200 hover:text-white transition-all duration-300 transform hover:scale-105">
+          <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
     <!-- Navigation Bar -->
-    <nav class="mt-6">
-      <ul class="flex justify-center space-x-6">
-        <li><a href="#about" class="text-blue-200 hover:text-white text-lg font-medium transition-colors duration-300">About Me</a></li>
-        <li><a href="#experience" class="text-blue-200 hover:text-white text-lg font-medium transition-colors duration-300">Experience</a></li>
-        <li><a href="#research" class="text-blue-200 hover:text-white text-lg font-medium transition-colors duration-300">Research & Interests</a></li>
-        <li><a href="#publications" class="text-blue-200 hover:text-white text-lg font-medium transition-colors duration-300">Publications</a></li>
-        <li><a href="#books" class="text-blue-200 hover:text-white text-lg font-medium transition-colors duration-300">Books</a></li>
+    <nav class="mt-10 relative z-10">
+      <ul class="flex flex-wrap justify-center space-x-6 sm:space-x-8">
+        <li><a href="#about" class="text-blue-200 hover:text-white text-lg sm:text-xl font-medium transition-colors duration-300 px-3 py-2 rounded-md hover:bg-blue-700">About Me</a></li>
+        <li><a href="#experience" class="text-blue-200 hover:text-white text-lg sm:text-xl font-medium transition-colors duration-300 px-3 py-2 rounded-md hover:bg-blue-700">Experience</a></li>
+        <li><a href="#research" class="text-blue-200 hover:text-white text-lg sm:text-xl font-medium transition-colors duration-300 px-3 py-2 rounded-md hover:bg-blue-700">Research & Interests</a></li>
+        <li><a href="#publications" class="text-blue-200 hover:text-white text-lg sm:text-xl font-medium transition-colors duration-300 px-3 py-2 rounded-md hover:bg-blue-700">Publications</a></li>
+        <li><a href="#books" class="text-blue-200 hover:text-white text-lg sm:text-xl font-medium transition-colors duration-300 px-3 py-2 rounded-md hover:bg-blue-700">Books</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Photo and Resume Section -->
-  <section class="photo text-center py-8 bg-white shadow-md rounded-lg max-w-4xl mx-auto mt-8 p-6 md:p-8">
+  <section class="photo text-center py-10 bg-white shadow-xl rounded-xl max-w-4xl mx-auto mt-12 p-8 md:p-10 section-card">
     <!-- Image for Vishwesh Nagamalla from uploaded file -->
-    <img src="vishwesh.jpg" onerror="this.onerror=null;this.src='https://placehold.co/150x150/004080/ffffff?text=Vishwesh';" alt="Vishwesh Nagamalla" class="rounded-full w-40 h-40 object-cover mx-auto mb-6 border-4 border-blue-800 shadow-md" />
+    <img src="vishwesh.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/4a5568/ffffff?text=Vishwesh';" alt="Vishwesh Nagamalla" class="rounded-full w-48 h-48 object-cover mx-auto mb-8 border-6 border-blue-600 shadow-2xl transform transition-transform duration-500 hover:scale-105" />
     <p>
-      <a href="Vishwesh-CV.pdf" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg">
-        📄 Download My Resume (PDF)
+      <a href="Vishwesh-CV.pdf" target="_blank" class="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300">
+        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        Download My Resume (PDF)
       </a>
     </p>
   </section>
 
   <!-- About Me Section -->
-  <section id="about" class="bg-white shadow-md rounded-lg max-w-4xl mx-auto mt-8 p-6 md:p-8">
-    <h2 class="text-3xl font-semibold text-blue-800 mb-4">About Me</h2>
+  <section id="about" class="bg-white shadow-xl rounded-xl max-w-4xl mx-auto mt-12 p-8 md:p-10 section-card">
+    <h2 class="text-4xl font-extrabold text-blue-800 mb-6 border-b-4 border-blue-200 pb-2">About Me</h2>
     <p class="text-lg leading-relaxed text-gray-700">
       I am a passionate Associate Professor and Head of Department for CSE (AI & ML) at Holy Mary Institute of Technology and Science, with over 14 years of diverse experience in both academia and industry. My dedication lies in empowering the next generation of engineers by fostering innovation at the intersection of Artificial Intelligence and the Internet of Things, preparing them to tackle real-world challenges with cutting-edge solutions. I strongly believe that the destiny of a nation is shaped in the classroom, where teachers serve as leaders and inspirers.
     </p>
   </section>
 
   <!-- Experience Section -->
-  <section id="experience" class="bg-white shadow-md rounded-lg max-w-4xl mx-auto mt-8 p-6 md:p-8">
-    <h2 class="text-3xl font-semibold text-blue-800 mb-4">Experience</h2>
-    <h3 class="text-xl font-semibold text-blue-700 mb-2">Teaching (12+ Years)</h3>
-    <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
-      <li>Associate Professor & HoD CSE (AI & ML) at Holy Mary Institute of Technology & Science (Autonomous) (October 2022 - Present)</li>
-      <li>Assistant Professor at SNIST (Autonomous) (August 2014 - October 2022)</li>
-      <li>Assistant Professor at JNTUH College of Engineering (January 2013 - August 2014)</li>
-    </ul>
-    <h3 class="text-xl font-semibold text-blue-700 mt-6 mb-2">Industry (2 Years)</h3>
-    <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
-      <li>Software Engineer - NM Reddy's Software Solutions (November 2008 - November 2010)</li>
-    </ul>
+  <section id="experience" class="bg-white shadow-xl rounded-xl max-w-4xl mx-auto mt-12 p-8 md:p-10 section-card">
+    <h2 class="text-4xl font-extrabold text-blue-800 mb-6 border-b-4 border-blue-200 pb-2">Experience</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+          <svg class="w-7 h-7 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          Teaching <span class="text-xl font-normal ml-2">(12+ Years)</span>
+        </h3>
+        <ul class="list-none text-lg text-gray-700 space-y-4">
+          <li class="icon-list-item"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Associate Professor & HoD CSE (AI & ML) at Holy Mary Institute of Technology & Science (Autonomous) (October 2022 - Present)</li>
+          <li class="icon-list-item"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Assistant Professor at SNIST (Autonomous) (August 2014 - October 2022)</li>
+          <li class="icon-list-item"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Assistant Professor at JNTUH College of Engineering (January 2013 - August 2014)</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+          <svg class="w-7 h-7 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.208-8.455-3.255M2.999 9.845A2.398 2.398 0 012 10.5a2.398 2.398 0 01-.999-.655M21.001 9.845A2.398 2.398 0 0022 10.5a2.398 2.398 0 00.999-.655"></path></svg>
+          Industry <span class="text-xl font-normal ml-2">(2 Years)</span>
+        </h3>
+        <ul class="list-none text-lg text-gray-700 space-y-4">
+          <li class="icon-list-item"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Software Engineer - NM Reddy's Software Solutions (November 2008 - November 2010)</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- Research & Interests Section -->
-  <section id="research" class="bg-white shadow-md rounded-lg max-w-4xl mx-auto mt-8 p-6 md:p-8">
-    <h2 class="text-3xl font-semibold text-blue-800 mb-4">Research & Interests</h2>
-    <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
-      <li>Artificial Intelligence: Machine Learning, Deep Learning, Natural Language Processing</li>
-      <li>Internet of Things: Smart Sensors, Embedded Systems, IoT Security</li>
-      <li>Information Security: Cryptography, Network Security, Data Privacy</li>
+  <section id="research" class="bg-white shadow-xl rounded-xl max-w-4xl mx-auto mt-12 p-8 md:p-10 section-card">
+    <h2 class="text-4xl font-extrabold text-blue-800 mb-6 border-b-4 border-blue-200 pb-2">Research & Interests</h2>
+    <ul class="list-disc list-inside text-lg text-gray-700 space-y-3">
+      <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h4c0 1.258 1 2 2 2h2c1 0 2-1.333 2-3V8a2 2 0 00-2-2h-3L8 3v3m0 3h.01M9 12H5M15 12h4"></path></svg>Artificial Intelligence: Machine Learning, Deep Learning, Natural Language Processing, Computer Vision</li>
+      <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 4l-4 4 4 4"></path></svg>Internet of Things: Smart Sensors, Embedded Systems, IoT Security, Edge Computing</li>
+      <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>Information Security: Cryptography, Network Security, Data Privacy, Cyber Threat Intelligence</li>
     </ul>
   </section>
 
   <!-- Publications Section -->
-  <section id="publications" class="bg-white shadow-md rounded-lg max-w-4xl mx-auto mt-8 p-6 md:p-8">
-    <h2 class="text-3xl font-semibold text-blue-800 mb-4">Publications</h2>
-    <h3 class="text-xl font-semibold text-blue-700 mb-2">Journals (16 total, including 1 SCI and 5 Scopus)</h3>
-    <ul class="list-disc list-inside text-lg text-gray-700 space-y-4">
+  <section id="publications" class="bg-white shadow-xl rounded-xl max-w-4xl mx-auto mt-12 p-8 md:p-10 section-card">
+    <h2 class="text-4xl font-extrabold text-blue-800 mb-6 border-b-4 border-blue-200 pb-2">Publications</h2>
+    <h3 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+      <svg class="w-7 h-7 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2.586m-4.586-4L12 12m0 0L8 12m4 0l4 4m-4-4l-4 4"></path></svg>
+      Journals <span class="text-xl font-normal ml-2">(16 total, including 1 SCI and 5 Scopus)</span>
+    </h3>
+    <ul class="list-disc list-inside text-lg text-gray-700 space-y-4 marker:text-blue-500">
       <li>
-        <a href="https://ijritcc.org/index.php/ijritcc/article/view/11612" target="_blank" class="text-blue-600 hover:underline">Comparing the Performance of Artificial Intelligence Techniques for Internet of Things Security</a>
-        <span class="text-gray-500 text-sm block"> - International Journal on Recent and Innovation Trends in Computing and Communication, Volume: 11 Issue: 11 (Scopus Indexed)</span>
+        <a href="https://ijritcc.org/index.php/ijritcc/article/view/11612" target="_blank" class="text-blue-600 hover:underline font-semibold">Comparing the Performance of Artificial Intelligence Techniques for Internet of Things Security</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal on Recent and Innovation Trends in Computing and Communication,</span> Volume: 11 Issue: 11 (Scopus Indexed)</span>
       </li>
       <li>
-        <a href="https://ijritcc.org/index.php/ijritcc/article/view/11277/8649" target="_blank" class="text-blue-600 hover:underline">Exploring Opportunities, Applications, And Challenges for Advancing the Internet of Things with Artificial Intelligence</a>
-        <span class="text-gray-500 text-sm block"> - International Journal on Recent and Innovation Trends in Computing and Communication (Scopus Indexed)</span>
+        <a href="https://ijritcc.org/index.php/ijritcc/article/view/11277/8649" target="_blank" class="text-blue-600 hover:underline font-semibold">Exploring Opportunities, Applications, And Challenges for Advancing the Internet of Things with Artificial Intelligence</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal on Recent and Innovation Trends in Computing and Communication</span> (Scopus Indexed)</span>
       </li>
       <li>
-        <a href="https://jnao-nu.com/Vol.%2015,%20Issue.%2001,%20January-June%20:%202024/29_online.pdf" target="_blank" class="text-blue-600 hover:underline">IoT Based Manhole Monitoring System</a>
-        <span class="text-gray-500 text-sm block"> - Journal of Nonlinear Analysis and Optimization, Vol. 15, Issue. 1: 2024</span>
+        <a href="https://jnao-nu.com/Vol.%2015,%20Issue.%2001,%20January-June%20:%202024/29_online.pdf" target="_blank" class="text-blue-600 hover:underline font-semibold">IoT Based Manhole Monitoring System</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">Journal of Nonlinear Analysis and Optimization,</span> Vol. 15, Issue. 1: 2024</span>
       </li>
       <li>
-        <a href="https://www.hindawi.com/journals/jfq/2022/6163649/" target="_blank" class="text-blue-600 hover:underline">Detection of Adulteration in Food using Recurrent Neural Networks with Internet of Things</a>
-        <span class="text-gray-500 text-sm block"> - Journal of Food Quality, Wiley & Hindawi (SCI Indexed Journal)</span>
+        <a href="https://www.hindawi.com/journals/jfq/2022/6163649/" target="_blank" class="text-blue-600 hover:underline font-semibold">Detection of Adulteration in Food using Recurrent Neural Networks with Internet of Things</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">Journal of Food Quality,</span> Wiley & Hindawi (SCI Indexed Journal)</span>
       </li>
       <li>
-        <a href="https://americaspg.com/articleinfo/20/show/2374" target="_blank" class="text-blue-600 hover:underline">Integrating Predictive Big Data Analytics with Behavioral Machine Learning Models for Proactive Threat Intelligence in Industrial IoT Cybersecurity</a>
-        <span class="text-gray-500 text-sm block"> - International Journal on Wireless and Ad hoc Communications (Scopus Indexed)</span>
+        <a href="https://americaspg.com/articleinfo/20/show/2374" target="_blank" class="text-blue-600 hover:underline font-semibold">Integrating Predictive Big Data Analytics with Behavioral Machine Learning Models for Proactive Threat Intelligence in Industrial IoT Cybersecurity</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal on Wireless and Ad hoc Communications</span> (Scopus Indexed)</span>
       </li>
       <li>
-        <a href="https://www.seyboldreport.net/pdf/99.pdf" target="_blank" class="text-blue-600 hover:underline">Investigation on Detection of Data Poisoning Attacks: Most Possible Defenses and Countermeasures</a>
-        <span class="text-gray-500 text-sm block"> - Seybold Report (Scopus Indexed Journal)</span>
+        <a href="https://www.seyboldreport.net/pdf/99.pdf" target="_blank" class="text-blue-600 hover:underline font-semibold">Investigation on Detection of Data Poisoning Attacks: Most Possible Defenses and Countermeasures</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">Seybold Report</span> (Scopus Indexed Journal)</span>
       </li>
       <li>
-        <a href="https://www.neuroquantology.com/data-cms/articles/20220926030836pmNQ55907.pdf" target="_blank" class="text-blue-600 hover:underline">Analysis and Detection of Fake Apps in Android Environment</a>
-        <span class="text-gray-500 text-sm block"> - Neuro Quantology (Scopus Indexed Journal)</span>
+        <a href="https://www.neuroquantology.com/data-cms/articles/20220926030836pmNQ55907.pdf" target="_blank" class="text-blue-600 hover:underline font-semibold">Analysis and Detection of Fake Apps in Android Environment</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">Neuro Quantology</span> (Scopus Indexed Journal)</span>
       </li>
       <li>
-        <a href="https://doi.org/10.54216/IJWAC.070201" target="_blank" class="text-blue-600 hover:underline">Integrating Predictive Big Data Analytics with Behavioral Machine Learning for Proactive Threat Intelligence in Industrial IoT Cyber Security</a>
-        <span class="text-gray-500 text-sm block"> - International Journal of Wireless and Adhoc Communication, Volume no 7, Issue 2</span>
+        <a href="https://doi.org/10.54216/IJWAC.070201" target="_blank" class="text-blue-600 hover:underline font-semibold">Integrating Predictive Big Data Analytics with Behavioral Machine Learning for Proactive Threat Intelligence in Industrial IoT Cyber Security</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal of Wireless and Adhoc Communication,</span> Volume no 7, Issue 2</span>
       </li>
       <li>
-        <a href="https://www.ijraset.com/print-certificate.php?member=18617" target="_blank" class="text-blue-600 hover:underline">Blockchain Technology: A Study on Structure, Classification, Applications of Blockchain</a>
-        <span class="text-gray-500 text-sm block"> - International Journal for Research in Applied Science and Engineering Technology</span>
+        <a href="https://www.ijraset.com/print-certificate.php?member=18617" target="_blank" class="text-blue-600 hover:underline font-semibold">Blockchain Technology: A Study on Structure, Classification, Applications of Blockchain</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal for Research in Applied Science and Engineering Technology</span></span>
       </li>
       <li>
-        <a href="http://dx.doi.org/10.21474/IJAR01/8578" target="_blank" class="text-blue-600 hover:underline">Location with Witness of Mutual Proofs Providing Privacy for Mobile Users</a>
-        <span class="text-gray-500 text-sm block"> - International Journal of Advanced Research (IJAR)</span>
+        <a href="http://dx.doi.org/10.21474/IJAR01/8578" target="_blank" class="text-blue-600 hover:underline font-semibold">Location with Witness of Mutual Proofs Providing Privacy for Mobile Users</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal of Advanced Research (IJAR)</span></span>
       </li>
       <li>
-        <a href="https://iiiemr.org/downloads/Volume-7/ISSUE-9" target="_blank" class="text-blue-600 hover:underline">A Systematic Study on Applications of Big data In Bioinformatics</a>
-        <span class="text-gray-500 text-sm block"> - International Journal for Innovative Engineering and Management Research</span>
+        <a href="https://iiiemr.org/downloads/Volume-7/ISSUE-9" target="_blank" class="text-blue-600 hover:underline font-semibold">A Systematic Study on Applications of Big data In Bioinformatics</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal for Innovative Engineering and Management Research</span></span>
       </li>
       <li>
-        <a href="https://acadpubl.eu/hub/2018-120-6/1/16.pdf" target="_blank" class="text-blue-600 hover:underline">An Overview on the Challenges and Impact of IoT in Future Education</a>
-        <span class="text-gray-500 text-sm block"> - International Journal of Pure and Applied Mathematics, Volume No 120</span>
+        <a href="https://acadpubl.eu/hub/2018-120-6/1/16.pdf" target="_blank" class="text-blue-600 hover:underline font-semibold">An Overview on the Challenges and Impact of IoT in Future Education</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal of Pure and Applied Mathematics,</span> Volume No 120</span>
       </li>
       <li>
-        <a href="http://ijsetr.com/uploads/352641IJSETR6700 -1266.pdf" target="_blank" class="text-blue-600 hover:underline">Tradeoff Between Tracing Bits and Parity Bits in Multiple Access Relay Networks</a>
-        <span class="text-gray-500 text-sm block"> - International Journal of Scientific Engineering and Technology Research (IJSETR), Vol.04, Issue.35</span>
+        <a href="http://ijsetr.com/uploads/352641IJSETR6700 -1266.pdf" target="_blank" class="text-blue-600 hover:underline font-semibold">Tradeoff Between Tracing Bits and Parity Bits in Multiple Access Relay Networks</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal of Scientific Engineering and Technology Research (IJSETR),</span> Vol.04, Issue.35</span>
       </li>
       <li>
-        <a href="http://www.iosrjournals.org/iosr -ice/papers/Vol8 -Issue5/10856369.pdf" target="_blank" class="text-blue-600 hover:underline">Generation of Meta Alerts by Aggregating Intrusion Alerts</a>
-        <span class="text-gray-500 text-sm block"> - IOSR Journal of Computer Engineering (IOSR-JCE), Volume 8, Issue 5</span>
+        <a href="http://www.iosrjournals.org/iosr -ice/papers/Vol8 -Issue5/10856369.pdf" target="_blank" class="text-blue-600 hover:underline font-semibold">Generation of Meta Alerts by Aggregating Intrusion Alerts</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">IOSR Journal of Computer Engineering (IOSR-JCE),</span> Volume 8, Issue 5</span>
       </li>
       <li>
-        <a href="http://ijcsn.org/IJCSN -2013/2-1/IJCSN -2013-2-1-50.pdf" target="_blank" class="text-blue-600 hover:underline">A Framework for Semantic Advertisement over Social Media</a>
-        <span class="text-gray-500 text-sm block"> - International Journal of Computer Science and Network (IJCSN), Volume 2, Issue 1</span>
-      </li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-blue-700 mt-6 mb-2">Patents (4 total: 1 International and 3 National)</h3>
-    <ul class="list-disc list-inside text-lg text-gray-700 space-y-4">
-      <li>
-        <span class="font-medium">Software Based Review of Current Supply Chain Management Technologies Based on IoT</span>
-        <span class="text-gray-500 text-sm block"> - Canadian Copyright Application Number 1198729, Date of File: 22/12/2022</span>
-      </li>
-      <li>
-        <span class="font-medium">The Internet of Things (IoT) and Cloud-Computing-based mass customization-driven customer demand response platform</span>
-        <span class="text-gray-500 text-sm block"> - Patent Application Number: 202241034095 (Published), Date of Publication 22/07/2022</span>
-      </li>
-      <li>
-        <span class="font-medium">IoT and Artificial Intelligence based Continuous Monitoring for bridge Safety by using Health Monitoring Technology</span>
-        <span class="text-gray-500 text-sm block"> - Patent Application No. 202241015569 (Published), Date of Publication: 25/03/2022</span>
-      </li>
-      <li>
-        <span class="font-medium">Machine Learning and IoT Based Intelligent System for Monitoring Health of Vehicle Battery</span>
-        <span class="text-gray-500 text-sm block"> - Patent Application No. 202211011330 (Published), Date of File: 11/03/2022</span>
+        <a href="http://ijcsn.org/IJCSN -2013/2-1/IJCSN -2013-2-1-50.pdf" target="_blank" class="text-blue-600 hover:underline font-semibold">A Framework for Semantic Advertisement over Social Media</a>
+        <span class="text-gray-600 text-base block mt-1"> - <span class="font-medium">International Journal of Computer Science and Network (IJCSN),</span> Volume 2, Issue 1</span>
       </li>
     </ul>
 
-    <h3 class="text-xl font-semibold text-blue-700 mt-6 mb-2">Book Chapter (1 Scopus Indexed)</h3>
-    <ul class="list-disc list-inside text-lg text-gray-700 space-y-4">
+    <h3 class="text-2xl font-semibold text-blue-700 mt-8 mb-4 flex items-center">
+      <svg class="w-7 h-7 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+      Patents <span class="text-xl font-normal ml-2">(4 total: 1 International and 3 National)</span>
+    </h3>
+    <ul class="list-disc list-inside text-lg text-gray-700 space-y-4 marker:text-blue-500">
       <li>
-        <span class="font-medium">Development of an Intelligent Management Accounting System by using Machine Learning and Data Mining Technique</span>
-        <span class="text-gray-500 text-sm block"> - (Submitted)</span>
+        <span class="font-semibold">Software Based Review of Current Supply Chain Management Technologies Based on IoT</span>
+        <span class="text-gray-600 text-base block mt-1"> - Canadian Copyright Application Number 1198729, Date of File: 22/12/2022</span>
+      </li>
+      <li>
+        <span class="font-semibold">The Internet of Things (IoT) and Cloud-Computing-based mass customization-driven customer demand response platform</span>
+        <span class="text-gray-600 text-base block mt-1"> - Patent Application Number: 202241034095 (Published), Date of Publication 22/07/2022</span>
+      </li>
+      <li>
+        <span class="font-semibold">IoT and Artificial Intelligence based Continuous Monitoring for bridge Safety by using Health Monitoring Technology</span>
+        <span class="text-gray-600 text-base block mt-1"> - Patent Application No. 202241015569 (Published), Date of Publication: 25/03/2022</span>
+      </li>
+      <li>
+        <span class="font-semibold">Machine Learning and IoT Based Intelligent System for Monitoring Health of Vehicle Battery</span>
+        <span class="text-gray-600 text-base block mt-1"> - Patent Application No. 202211011330 (Published), Date of File: 11/03/2022</span>
+      </li>
+    </ul>
+
+    <h3 class="text-2xl font-semibold text-blue-700 mt-8 mb-4 flex items-center">
+      <svg class="w-7 h-7 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+      Book Chapter <span class="text-xl font-normal ml-2">(1 Scopus Indexed)</span>
+    </h3>
+    <ul class="list-disc list-inside text-lg text-gray-700 space-y-4 marker:text-blue-500">
+      <li>
+        <span class="font-semibold">Development of an Intelligent Management Accounting System by using Machine Learning and Data Mining Technique</span>
+        <span class="text-gray-600 text-base block mt-1"> - (Submitted)</span>
       </li>
     </ul>
   </section>
 
   <!-- Books Section -->
-  <section id="books" class="bg-white shadow-md rounded-lg max-w-4xl mx-auto mt-8 p-6 md:p-8">
-    <h2 class="text-3xl font-semibold text-blue-800 mb-4">Books</h2>
-    <ul class="list-disc list-inside text-lg text-gray-700 space-y-4">
+  <section id="books" class="bg-white shadow-xl rounded-xl max-w-4xl mx-auto mt-12 p-8 md:p-10 section-card">
+    <h2 class="text-4xl font-extrabold text-blue-800 mb-6 border-b-4 border-blue-200 pb-2">Books</h2>
+    <ul class="list-disc list-inside text-lg text-gray-700 space-y-4 marker:text-blue-500">
       <li>
-        <a href="https://amzn.eu/d/9v9Pv80" target="_blank" class="text-blue-600 hover:underline">Data Structures (Text Book)</a>
-        <span class="text-gray-500 text-sm block"> - JEC Publications, ISBN: 978-93-5850-628-0</span>
+        <a href="https://amzn.eu/d/9v9Pv80" target="_blank" class="text-blue-600 hover:underline font-semibold">Data Structures (Text Book)</a>
+        <span class="text-gray-600 text-base block mt-1"> - JEC Publications, ISBN: 978-93-5850-628-0</span>
       </li>
       <li>
-        <a href="https://www.flipkart.com/iot-architecture-its-protocols/p/itmcd576475aea93" target="_blank" class="text-blue-600 hover:underline">IoT Architecture and Its Protocols (Text Book)</a>
-        <span class="text-gray-500 text-sm block"> - Alpha International Publication (AIP), ISBN: 978-93-95978-01-9</span>
+        <a href="https://www.flipkart.com/iot-architecture-its-protocols/p/itmcd576475aea93" target="_blank" class="text-blue-600 hover:underline font-semibold">IoT Architecture and Its Protocols (Text Book)</a>
+        <span class="text-gray-600 text-base block mt-1"> - Alpha International Publication (AIP), ISBN: 978-93-95978-01-9</span>
       </li>
     </ul>
   </section>
 
   <!-- Footer Section -->
-  <footer class="text-center p-4 bg-gray-200 text-gray-700 mt-auto shadow-inner">
-    &copy; 2025 Vishwesh Nagamalla. Last Updated: June 2025.
+  <footer class="text-center p-6 bg-blue-900 text-blue-200 mt-auto shadow-inner text-lg">
+    &copy; 2025 Vishwesh Nagamalla. All rights reserved. Last Updated: June 2025.
   </footer>
+
+  <!-- Lucide icons initialization for dynamic icons -->
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
